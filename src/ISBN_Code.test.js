@@ -1,12 +1,17 @@
+
 const {checkISBN} = require('./ISBN_Code')
 
 function checkISBN_Test(isbn)
 {
     let res = checkISBN(isbn)
-    return res == isbn[isbn.length-1];
+    return res === isbn[isbn.length-1];
 }
 
 describe('checkISBN',() => {
+    it('it should return false',() =>{
+        const result = checkISBN_Test("9780691147314")
+        expect(result).toBe(false)
+    })
     it('should get a string',() =>{
         const result = checkISBN_Test("9780691147314")
         expect(result).toBe(false)
@@ -26,5 +31,9 @@ describe('checkISBN',() => {
     it('should return an empty string if digit is 0',() =>{
         const result = checkISBN('147231422')
         expect(result).toBe('')
+    })
+    it('should return an empty string if digit is 0',() =>{
+        const result = checkISBN('1000000001')
+        expect(result).toBe("1")
     })
 })
