@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<head>
-    
-</head>
 <html>
+    <head>    
+    </head>
+
     <body>
-        <input type="text" id="count">
-        <div id="result"></div>
-        <button id="calc">prüfen</button>
+        <p>ISBN-Checker</p>
+        <input type="text" id="isbn" size="10" maxlength="13" style="text-align:center">
+
+        <p id="debug"></p>
+        <div id="validText" style="color: green" display=none> ISBN ist korrekt.</div>
+        <div id="invalidText" style="color: red" display=none> ISBN ist nicht korrekt.</div>
+        <button id="calc">ISBN prüfen</button>
+        
         <script src="dist/main.js"></script>
     </body>
   
-</html>
+</html> 

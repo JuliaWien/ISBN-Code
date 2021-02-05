@@ -1,9 +1,10 @@
 {
-  "name": "ISBN-Code",
+  "name": "isbn_code",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build",
     "test": "jest",
     "start": "ws",
     "build": "webpack --config ./webpack.config.js"
@@ -20,11 +21,15 @@
   },
   "homepage": "https://github.com/JuliaWien/ISBN-Code#readme",
   "devDependencies": {
+    "jquery": "^26.6.0",
     "jest": "^26.6.3",
     "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "local": "^0.3.3"
+    "jquery": "3.5.1",
+    "local": "^0.3.3",
+    "local-web-server": "^4.2.1",
+    "serve": "^11.3.2"
   }
 }
