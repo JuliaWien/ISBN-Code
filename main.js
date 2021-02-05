@@ -37,13 +37,37 @@ function getISBN4() {
 
 function berechne() { 
     clear();
-    const isbn = document.getElementById('isbn').value;
-    const pruefziffer = checkISBN(isbn);
-    if (pruefziffer === isbn[isbn.length - 1]) {
-        document.getElementById('validText').style.visibility = 'visible';
+
+    // Aufgabe d: Advanced
+    const isbn4Input = document.getElementById('isbn4');
+    if (document.getElementById('isbn1').value.length < 1 ||
+        document.getElementById('isbn2').value.length < 3 ||
+        document.getElementById('isbn3').value.length < 5) {  // noch unvollständige ISBN
+
+            const isbn = getISBN3();
+        const pruefziffer = checkISBN(isbn);
+        console.log("Berechne/ISBN: " + isbn3)
+        console.log("Berechne/Prüfziffer: " + pruefziffer)
+        console.log("ISBN2.value.length: " + document.getElementById('isbn2').value.length)
+        //document.getElementById("debug").innerHTML = "ISBN-Check: " + isbn + '  ==>  ' + pruefziffer
+
+        isbn4Input.style.background = 'lightgrey';
+        isbn4Input.value = pruefziffer;
     }
-    else 
-        document.getElementById('invalidText').style.visibility = 'visible';
+    else {
+        const isbn = getISBN4();
+        const pruefziffer = checkISBN(isbn);
+        isbn4Input.style.background = 'transparent';
+        if (pruefziffer === isbn[isbn.length - 1]) {
+            document.getElementById('validText').style.visibility = 'visible'
+            //valid();
+        }
+        else {
+            document.getElementById('invalidText').style.visibility = 'visible'
+            //invalid();
+        }
+    }
+    
 }
 
 function ISBNTest(e) {
@@ -76,4 +100,8 @@ function ISBNTest(e) {
 
 clear();
 
-document.querySelector('#isbn').addEventListener('input', ISBNTest);
+
+document.querySelector('#isbn1').addEventListener('input', ISBNTest);
+document.querySelector('#isbn2').addEventListener('input', ISBNTest);
+document.querySelector('#isbn3').addEventListener('input', ISBNTest);
+document.querySelector('#isbn4').addEventListener('input', ISBNTest);
