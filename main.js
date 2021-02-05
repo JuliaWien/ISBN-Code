@@ -76,6 +76,4 @@ function ISBNTest(e) {
 
 clear();
 
-
-document.getElementById('calc').addEventListener("click", berechne);
 document.querySelector('#isbn').addEventListener('input', ISBNTest);
